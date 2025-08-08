@@ -11,9 +11,12 @@
       <!-- Activity 6: Render a list containing author names and their birth years. Hint: Make use of the v-for directive to iterate through the array of authors. -->
       <!-- TODO: CODE TO RENDER LIST OF AUTHORS HERE -->
        <ul>
-          <li v-for="author in authors" :key="author.id">
-            {{ author.name }} ({{ author.birthYear }})
-          </li>
+          <li v-for="author in authors" :key="author.id"
+            :class="{ highlight: author.name === 'George Orwell' }"
+            :style="author.name === 'George Orwell' ? { backgroundColor: '#42b883', color: '#fff' } : {}"
+            :title="author.name === 'George Orwell' ? 'This is George Orwell' : ''">
+          {{ author.name }} ({{ author.birthYear }})
+  </li>
        </ul>
       
       <h3>Filtering Arrays</h3>
@@ -216,4 +219,10 @@ li {
   margin: 5px 0;
   border-radius: 5px;
 }
+.highlight {
+  background-color: #42b883; /* Green background */
+  color: white; /* White text */
+  font-weight: bold; /* Make the text bold */
+}
+
 </style>
